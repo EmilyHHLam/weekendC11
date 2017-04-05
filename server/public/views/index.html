@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Angular Real Estate List</title>
 
     <link rel="stylesheet" href="/vendors/bootstrap.css" />
-
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="/views/style.css">
     <script type="text/javascript" src="/vendors/angular.min.js"></script>
     <script type="text/javascript" src="/scripts/data.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
+  
   <body>
-    
+    <div class="container " align="center" ng-controller="DeleteController">
+      <button align="center" class="btn btn-danger" ng-click="emptyDiv()">Delete Everything</button>
+    </div>
+    <p></p>
+    <div id="listofProperty" class ="container text-center" align="center"  ng-controller="DisplayController" >
+      <div  class="row item" ng-repeat="listing in listings">
+        <div class='lead col-md-2'>{{listing.status}}</div>
+        <div class='lead col-md-2'>${{listing.price}}</div>
+        <div class='lead col-md-2'>{{listing.sqft}}</div>
+        <div class='lead col-md-2'>{{listing.city}}</div>
+        <div><a class="btn btn-danger" ng-click="remove($index)" >X</a></div>
+      </div>
+    </div>
   </body>
 </html>
