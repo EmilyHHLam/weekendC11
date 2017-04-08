@@ -14,6 +14,11 @@ console.log("Outcontroller called");
 console.log("here it is" + getMovieService.passlistResults);
 $scope.listresults = getMovieService.passlistResults;
 
+//delete the item out of search list
+$scope.delete = function(item) {
+  console.log('item' + item);
+  $scope.listresults.results.splice($scope.listresults.results.indexOf(item), 1);
+};
 }]);
 
 //factory

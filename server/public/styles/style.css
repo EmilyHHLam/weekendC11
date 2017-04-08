@@ -1,0 +1,16 @@
+body {
+  width: 900px;
+  padding: 30px;
+  font-family: sans-serif;
+}
+img {
+  height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.right {
+    text-align: right;
+    float: right;
+}
