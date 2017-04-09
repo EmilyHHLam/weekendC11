@@ -24,28 +24,29 @@
         <div class="col-md-8 panel-group">
           List of movies
           <div class="row " ng-repeat="movie in listresults.results ">
-
             <div class="col-md-5" >
               <img ng-src="{{movie.Poster}}" />
             </div>
             <div class="col-md-7 panel panel-info">
               <div class="title panel-heading">
 
-                Title: {{movie.Title}}
+                Title: <span ng-model="favmovie.title">{{movie.Title}} </span>
 
-                <a ng-click="delete($index)" class="right" href="#">
-                  <span class="glyphicon glyphicon-trash"></span>
-                  &nbsp;&nbsp;&nbsp;
-                </a>
-                <a class="right" href="#">
+                <a  ng-click="addFav(favmovie)">
                   <span class="glyphicon glyphicon-star"></span>
                 </a>
+
+                <a ng-click="delete(movie)" class="right" href="#">
+                  <span class="glyphicon glyphicon-trash"></span>
+                  <br />
+                </a>
+
 
               </div>
               <div class="panel-body">
                 <b>Actors:</b> {{movie.Actors}}<br />
                 <b>Released:</b> {{movie.Year}}<br />
-                <b>Length:</b> {{movie.Runtime}}<br />
+                <b>Length:</b> <span ng-model="favmovie.length">{{movie.Runtime}}</span><br />
               </div>
             </div>
 
@@ -54,6 +55,9 @@
         </div>
         <div class="col-md-4">
           List all favorites
+          <div ng-controller="OutputFavController">
+          <p> {{ infoFromServer }} </p>
+        </div>
         </div>
       </div>
 

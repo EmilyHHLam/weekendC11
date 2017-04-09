@@ -7,8 +7,10 @@ var bodyParser = require('body-parser');
 //DATABASE MODULE
 var db = require('./modules/db.js');
 
+
 //ROUTE MODULES
 var index = require('./routes/index.js');
+var favmovie = require('./routes/movielist.js');
 
 //APP CONFIG
 app.set('port', (process.env.PORT || 5000));
@@ -20,6 +22,7 @@ app.use(express.static('server/public'));
 
 //ROUTES
 app.use('/', index);
+app.use('/favmovie', favmovie);
 
 //LISTEN
 app.listen(app.get('port'), function(){
