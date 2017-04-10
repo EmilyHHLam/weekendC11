@@ -13,17 +13,20 @@
 
 
   </head>
-  <body>12345
+  <body>
+    <h1>Movie Selections</h1>
     <div ng-controller="InputController">
       <input type="text" value="frozen" ng-model="name">
-      <button ng-click="searchName(name)">Search</button>
+      <button class="btn btn-group" ng-click="searchName(name)" placeholder="Movie Name">Search</button>
+      <h2 >List of My Favorites  </h2>
     </div>
+    <hr class="style13" />
     <div >
       <!--this row seperate the main/left and main/right-->
       <div class="row">
         <div ng-controller="OutputController" class="col-md-8 panel-group" >
-          List of movies
-          <div class="row " ng-repeat="movie in listresults.results ">
+          <div class="row" ng-repeat="movie in listresults.results">
+
             <div class="col-md-5" >
               <img ng-src="{{movie.Poster}}" />
             </div>
@@ -54,12 +57,27 @@
           </div>
         </div>
         <div class="col-md-4">
-          List all favorites
           <div ng-controller="OutputFavController">
-            <!-- <div ng-repeat="movie in movieList">
-              
-            </div> -->
-          <!-- <p> {{ infoFromServer }} </p> -->
+            <div ng-show="listofFavMovie.length!=0" ng-repeat="movie in listofFavMovie[0]">
+              <div class="row">
+                  <div class="col-md-8">
+
+                    {{movie.name}}
+                    {{movie.length}}
+                  </div>
+                  <div class="col-md-2">
+                    <a ng-click="deleteFav(movie)" >
+                      <span class="glyphicon glyphicon-trash"></span>
+                      <br />
+                    </a>
+                  </div>
+
+              </div>
+
+
+
+            </div>
+
         </div>
         </div>
       </div>

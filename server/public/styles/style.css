@@ -14,3 +14,22 @@ img {
     text-align: right;
     float: right;
 }
+
+h1 {
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #000000;
+}
+h2 {
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: right;
+    float: right;
+}
+hr.style13 {
+  width: 900px;
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}

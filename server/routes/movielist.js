@@ -34,12 +34,22 @@ router.post('/', function(req, res) {
 
 });
 
+
+router.delete('/', function(req, res) {
+  var id = req.body._id;
+  Movie.findByIdAndRemove(id, function(err, deletedMovie){
+    if(err){
+      console.log(err);
+  res.sendStatus(200);
+  }
+
+  res.send(deletedMovie);
+  });
+});
+
 router.put('/', function(req, res) {
   res.sendStatus(200);
 });
 
-router.delete('/', function(req, res) {
-  res.sendStatus(200);
-});
 
 module.exports = router;
