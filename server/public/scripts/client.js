@@ -6,7 +6,7 @@ console.log("inputcontroller called");
 
 //binging the search movie towards factory
 $scope.searchName = giveMovieService.listofMovie;
-
+$scope.name = null;
 }]);
 
 //control 2: output
@@ -32,8 +32,6 @@ movieApp.controller('OutputFavController', ['$scope', 'MovieService', function($
 // console.log('testing' + $scope.getRequest);
 getFavMovieService.favMovieList();
 $scope.listofFavMovie = getFavMovieService.listofFavMovie;
-console.log("list of fav", getFavMovieService.listofFavMovie);
-
 
 $scope.deleteFav = getFavMovieService.deletefromFav;
 
@@ -75,8 +73,6 @@ var favMovieList = [];
   };
   //delete favorite movie
   var deleteFav = function (favmovie) {
-    var favmovie_id = { id : favmovie._id };
-    console.log(favmovie_id);
     $http.delete('/favmovie/' + favmovie._id).then(function(response) {
       console.log(response);
       getMovieList();
@@ -86,6 +82,7 @@ var favMovieList = [];
   var searchName = function(name) {
     $http.get('http://www.omdbapi.com/?t=' + name + '&y=&plot=full&r=json').then(function(response){
     results.push(response.data);
+
     });
   };
 
