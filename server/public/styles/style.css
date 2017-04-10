@@ -1,7 +1,8 @@
 body {
   width: 900px;
   padding: 30px;
-  font-family: sans-serif;
+  font-family: Arial !important;
+  /*ont-family: sans-serif;*/
 }
 img {
   height: auto;
@@ -27,6 +28,7 @@ h2 {
     text-align: right;
     float: right;
 }
+
 hr.style13 {
   width: 900px;
 	height: 10px;

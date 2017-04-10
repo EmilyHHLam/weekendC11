@@ -35,8 +35,9 @@ router.post('/', function(req, res) {
 });
 
 
-router.delete('/', function(req, res) {
-  var id = req.body._id;
+router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  console.log('id=' + id);
   Movie.findByIdAndRemove(id, function(err, deletedMovie){
     if(err){
       console.log(err);

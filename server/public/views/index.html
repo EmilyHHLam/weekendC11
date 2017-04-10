@@ -2,7 +2,7 @@
 <html ng-app="movieApp">
   <head>
     <meta charset="utf-8">
-    <title>Shopping Cart</title>
+    <title>Weekend Challenge 5</title>
 
 
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css" />
@@ -32,28 +32,20 @@
             </div>
             <div class="col-md-7 panel panel-info">
               <div class="title panel-heading">
-
-                Title: <span ng-model="favmovie.title">{{movie.Title}} </span>
-
-                <a ng-click="addFav(movie)">
-                  <span class="glyphicon glyphicon-star"></span>
-                </a>
-
-                <a ng-click="delete(movie)" class="right">
-                  <span class="glyphicon glyphicon-trash"></span>
-                  <br />
-                </a>
-
-
+                  Title: {{movie.Title}}
+                  <a ng-click="addFav(movie)">
+                    <span class="glyphicon glyphicon-star"></span>
+                  </a>
+                  <a ng-click="delete(movie)" class="right">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
               </div>
               <div class="panel-body">
                 <b>Actors:</b> {{movie.Actors}}<br />
                 <b>Released:</b> {{movie.Year}}<br />
-                <b>Length:</b> <span ng-model="favmovie.length"> {{movie.Runtime}}</span><br />
+                <b>Length:</b>{{movie.Runtime}}<br />
               </div>
             </div>
-
-
           </div>
         </div>
         <div class="col-md-4">
@@ -61,28 +53,19 @@
             <div ng-show="listofFavMovie.length!=0" ng-repeat="movie in listofFavMovie[0]">
               <div class="row">
                   <div class="col-md-8">
-
-                    {{movie.name}}
+                    {{movie.name}}:
                     {{movie.length}}
                   </div>
                   <div class="col-md-2">
                     <a ng-click="deleteFav(movie)" >
-                      <span class="glyphicon glyphicon-trash"></span>
-                      <br />
+                      <span class="glyphicon glyphicon-remove"></span>
                     </a>
                   </div>
-
               </div>
-
-
-
             </div>
-
-        </div>
+          </div>
         </div>
       </div>
-
-
     </div>
   </body>
 </html>

@@ -11,8 +11,6 @@ $scope.searchName = giveMovieService.listofMovie;
 
 //control 2: output
 movieApp.controller('OutputController', ['$scope', 'MovieService', function($scope, getMovieService) {
-console.log("Outcontroller called");
-console.log("here it is" + getMovieService.passlistResults);
 $scope.listresults = getMovieService.passlistResults;
 
 
@@ -49,7 +47,6 @@ movieApp.factory('MovieService', ['$http',function($http){
   var results = [];
   var listResults = {
     results: results
-  //  total: 0
   };
 
   //$scope.movieList  = [];
@@ -57,15 +54,13 @@ var favMovieList = [];
 
   var getMovieList = function() {
       $http.get('/favmovie').then(function(response){
+        favMovieList.length = 0;
         favMovieList.push(response.data);
+        //favMovieList = response.data;
         console.log('list' + response.data);
-
       });
-
     };
-
   var addFav = function(favmovie) {
-
     flagmovie = {
       name: favmovie.Title,
       length: favmovie.Runtime
@@ -78,26 +73,24 @@ var favMovieList = [];
     });
     // console.log($scope.newMessage);
   };
-
-  //delete
+  //delete favorite movie
   var deleteFav = function (favmovie) {
-    console.log('delete this ' + favmovie);
-    $http.delete('/favmovie', favmovie).then(function(response) {
+    var favmovie_id = { id : favmovie._id };
+    console.log(favmovie_id);
+    $http.delete('/favmovie/' + favmovie._id).then(function(response) {
       console.log(response);
       getMovieList();
     });
   };
-
+  //search the movie
   var searchName = function(name) {
     $http.get('http://www.omdbapi.com/?t=' + name + '&y=&plot=full&r=json').then(function(response){
     results.push(response.data);
-
     });
-
   };
 
   return {
-    //delete
+    //delete the favorite movie
     deletefromFav: deleteFav,
     //add to the fav list
     listofFav: addFav,
