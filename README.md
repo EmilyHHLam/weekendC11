@@ -1,5 +1,5 @@
 
-**System Detail**//
+**System Detail**
 
 **Client Side**
 * Displays movie information made available from OMDB.
